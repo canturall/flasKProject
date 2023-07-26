@@ -9,14 +9,20 @@ model = YOLO(config.YOLO_MODEL)
 cap = cv2.VideoCapture(config.VIDEO_SOURCE_PATH)
 video_info = sv.VideoInfo.from_video_path(config.VIDEO_SOURCE_PATH)
 
+fps = cap.get(cv2.CAP_PROP_FPS)
+frame_count = cap.get(cv2.CAP_PROP_FRAME_COUNT)
+fps_multiplier = 0
+
 zone = sv.PolygonZone(
     polygon=np.asarray(a=config.POLYGONE_POINTS, dtype=int),
     frame_resolution_wh=video_info.resolution_wh
 )
 
 def get_zone_count() -> int:
+    global fps_multiplier
+    cap.set(cv2.CAP_PROP_POS_FRAMES, (fps*fps_multiplier))
+    fps_multiplier += 1
     res, frame = cap.read()
-
     if res:
         results = model(frame, imgsz=1280, classes=[2, 5, 7, 9])[0]
         detections = sv.Detections.from_yolov8(results)
