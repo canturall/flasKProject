@@ -9,6 +9,7 @@ counter = 0
 
 def increase_counter():
     global counter
+    
     while True:
         if counter < 100:
             counter += 1
