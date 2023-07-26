@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Havelsan Yemekhane App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            --background-color: #f1f1f1;
+            --text-color: #333;
+        }
+
+        body.dark-mode {
+            --background-color: #333;
+            --text-color: #f1f1f1;
+        }
+
+        .background-image {
+            background-image: url("/static/images/Havelsan_logo.svg.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 600px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: var(--background-color);
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .fill {
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .green { background-color: green; }
+        .yellow { background-color: yellow; }
+        .red { background-color: red; }
+
+        .toggle-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--text-color);
+        }
+
+        .toggle-mode.dark-mode {
+            color: var(--background-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="container">
+        <h1>Doluluk Oranı %<span id="counter"></span></h1>
+        <div class="progress-bar">
+            <div class="fill" id="progress"></div>
+        </div>
+
+        <h3>Tabldot Menü</h3>
+        <table>
+            <tr>
+                <th>Yemek</th>
+                <th>Tür</th>
+                <th>Kalori</th>
+            </tr>
+            <tr>
+                <td>Yarma Çorba</td>
+                <td>Çorba</td>
+                <td>190</td>
+            </tr>
+            <tr>
+                <td>Bazlamalı Parmak Köfte</td>
+                <td>Ana Yemek</td>
+                <td>350</td>
+            </tr>
+            <tr>
+                <td>Melek Pilavı</td>
+                <td>Yardımcı Yemek</td>
+                <td>290</td>
+            </tr>
+            <tr>
+                <td>Meşrubat</td>
+                <td>Meyve/Tatlı</td>
+                <td>200</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="toggle-mode" onclick="toggleDarkMode()">Mode</div>
+
+    <script>
+        // SSE ile sunucudan gelen değeri alıp ekranda gösteren JavaScript kodu
+        const counterElement = document.getElementById('counter');
+        const progressBar = document.getElementById('progress');
+        const eventSource = new EventSource('/stream');
+
+        eventSource.onmessage = function(event) {
+            const value = parseInt(event.data);
+            counterElement.textContent = value;
+            progressBar.style.width = value + '%';
+
+            if (value <= 40) {
+                progressBar.className = 'fill green';
+            } else if (value <= 70) {
+                progressBar.className = 'fill yellow';
+            } else {
+                progressBar.className = 'fill red';
+            }
+        };
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
