@@ -73,15 +73,31 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            border-spacing: 0 15px;
         }
 
         th, td {
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
+            width: 150px;
+            text-align: center;
+            border: 1px solid white;
+            padding: 5px;
         }
 
         th {
             background-color: #f2f2f2;
+        }
+
+        /* Additional Style for the Counter Container */
+        .counter-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Additional Style to center the container */
+        @media (min-width: 768px) {
+            .container {
+                margin: 50px auto;
+            }
         }
     </style>
 </head>
@@ -92,8 +108,38 @@
         <div class="progress-bar">
             <div class="fill" id="progress"></div>
         </div>
+    </div>
 
+    <div class="container" style="float: left;">
         <h3>TABLDOT MENÜ</h3>
+        <table>
+            <tr>
+                <th>Yemek</th>
+                <th>Tür</th>
+                <th>Kalori</th>
+            </tr>
+            <tr>
+                <td>Yarma Çorba</td>
+                <td>Çorba</td>
+                <td>190</td>
+            </tr>
+            <tr>
+                <td>Bazlamalı Parmak Köfte</td>
+                <td>Ana Yemek</td>
+                <td>350</td>
+            </tr>
+            <tr>
+                <td>Melek Pilavı</td>
+                <td>Yardımcı Yemek</td>
+                <td>290</td>
+            </tr>
+            <tr>
+                <td>Meşrubat</td>
+                <td>Meyve/Tatlı</td>
+                <td>200</td>
+            </tr>
+        </table>
+         <h3>DİYET MENÜ</h3>
         <table>
             <tr>
                 <th>Yemek</th>
@@ -123,20 +169,21 @@
         </table>
     </div>
 
+
+
     <div class="toggle-mode" onclick="toggleDarkMode()">Mode</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script>
         socket = io();
         socket.connect('http://127.0.0.1:5000/');
-        socket.on('connect',function (){
+        socket.on('connect', function() {
             socket.send('a');
-        })
-        socket.on('message',function(msg){
-            document.getElementById('counter').innerText = msg
+        });
+        socket.on('message', function(msg) {
+            document.getElementById('counter').innerText = msg;
             socket.send('a');
-        })
-
+        });
     </script>
 
     <script>
