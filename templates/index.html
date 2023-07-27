@@ -65,6 +65,16 @@
             margin-bottom: 10px;
         }
 
+        .layout {
+  width: 1920px;
+  height: 1080px;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
         .fill {
             height: 100%;
             border-radius: 5px;
@@ -92,6 +102,7 @@
             border-collapse: collapse;
             margin-top: 20px;
             border-spacing: 0 15px;
+            background-color: white;
         }
 
         th, td {
@@ -103,6 +114,34 @@
 
         th {
             background-color: #f2f2f2;
+        }
+
+         .card-transaction {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .transaction-title {
+            margin-bottom: 5px;
+        }
+
+        .text-primary {
+            color: #2d8bf0;
+        }
+
+        .text-success {
+            color: #19be6b;
+        }
+
+        .text-warning {
+            color: #ff9900;
+        }
+
+        .text-danger {
+            color: #ed3f14;
         }
 
         /* Additional Style for the Counter Container */
@@ -133,8 +172,8 @@
         </div>
     </div>
 
-    <div class="container" style="float: left;">
-        <h3>TABLDOT MENÜ</h3>
+    <section class="layout">
+  <div><h3 style="text-align: center;">TABLDOT MENU</h3>
         <table>
             <tr>
                 <th>Yemek</th>
@@ -161,8 +200,9 @@
                 <td>Meyve/Tatlı</td>
                 <td>200</td>
             </tr>
-        </table>
-         <h3>DİYET MENÜ</h3>
+        </table></div>
+  <div></div>
+  <div><h3 style="text-align: center;">ALAKART MENU</h3>
         <table>
             <tr>
                 <th>Yemek</th>
@@ -189,8 +229,70 @@
                 <td>Meyve/Tatlı</td>
                 <td>200</td>
             </tr>
-        </table>
-    </div>
+        </table></div>
+  <div><h3 style="text-align: center;">DİYET MENU</h3>
+        <table>
+            <tr>
+                <th>Yemek</th>
+                <th>Tür</th>
+                <th>Kalori</th>
+            </tr>
+            <tr>
+                <td>Yarma Çorba</td>
+                <td>Çorba</td>
+                <td>190</td>
+            </tr>
+            <tr>
+                <td>Bazlamalı Parmak Köfte</td>
+                <td>Ana Yemek</td>
+                <td>350</td>
+            </tr>
+            <tr>
+                <td>Melek Pilavı</td>
+                <td>Yardımcı Yemek</td>
+                <td>290</td>
+            </tr>
+            <tr>
+                <td>Meşrubat</td>
+                <td>Meyve/Tatlı</td>
+                <td>200</td>
+            </tr>
+        </table></div>
+  <div>5</div>
+  <div><h3 style="text-align: center;">SALATALAR</h3>
+        <table>
+            <tr>
+                <th>Yemek</th>
+                <th>Tür</th>
+                <th>Kalori</th>
+            </tr>
+            <tr>
+                <td>Yarma Çorba</td>
+                <td>Çorba</td>
+                <td>190</td>
+            </tr>
+            <tr>
+                <td>Bazlamalı Parmak Köfte</td>
+                <td>Ana Yemek</td>
+                <td>350</td>
+            </tr>
+            <tr>
+                <td>Melek Pilavı</td>
+                <td>Yardımcı Yemek</td>
+                <td>290</td>
+            </tr>
+            <tr>
+                <td>Meşrubat</td>
+                <td>Meyve/Tatlı</td>
+                <td>200</td>
+            </tr>
+        </table></div>
+  <div>7</div>
+  <div>8</div>
+  <div>9</div>
+</section>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script>
