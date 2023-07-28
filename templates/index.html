@@ -8,17 +8,16 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: rgb(248, 248, 248);
-            --background-color: rgb(79, 214, 231);
-            --text-color: #1c1c01;
+            background-color: #f5f5f5;
+            --background-color: #3e9da9;
+            --text-color: #333;
         }
 
         .Top-Bar{
             width: 100%;
             height: 8vh;
             top: 0;
-
-            background-color: rgb(84, 208, 224);
+            background-color: #ffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,20 +27,7 @@
             width: 10vw;
             height: 8vh;
         }
-        /*turkuaz kod : 1DA3B7FF*/
 
-        /*.background-image {*/
-        /*    !*background-image: url("/static/images/Havelsan_logo.svg.png");*!*/
-        /*    background-size: cover;*/
-        /*    background-repeat: no-repeat;*/
-        /*    background-attachment: fixed;*/
-        /*    width: 100vw;*/
-        /*    height: 100vh;*/
-        /*    position: absolute;*/
-        /*    top: 0;*/
-        /*    left: 0;*/
-        /*    z-index: -1;*/
-        /*}*/
 
         .container {
             padding: 10px;
@@ -53,7 +39,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-
 
         .progress-bar {
             width: 100%;
@@ -91,38 +76,74 @@
             color: var(--text-color);
         }
 
-
-
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
             border-spacing: 0 15px;
-            background-color: #fafaea;
+            background-color: white;
         }
-
-
 
         th, td {
             width: 150px;
             text-align: center;
             border: 1px solid #000000;
             padding: 5px;
+            background-color: #f2f2f2;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .fill {
+            height: 100%;
+            background-color: #000301;
+            width: 0;
         }
 
         th {
-            background-color: rgb(62, 157, 169);
+            background-color: #d3d3d3;
         }
-
-         /*TEXT COLOR : 3E9DA9FF*/
-
-
          .card-transaction {
             margin: 20px 0;
             padding: 15px;
             border-radius: 10px;
             background-color: #ffffff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        body.dark-mode {
+           background-color: rgb(4, 19, 40);
+            --background-color: #01010c;
+        }
+         .dark-mode .container {
+            background-color: rgba(129, 121, 121, 0.51);
+            --text-color: #eee9e9;
+         }
+
+        .dark-mode table {
+            background-color: rgba(134, 21, 21, 0.69);
+            --text-color: #eee9e9;
+        }
+
+        .dark-mode th {
+            background-color: rgba(35, 5, 5, 0.57);
+            --text-color: #eee9e9;
+        }
+        .dark-mode .progress-bar{
+            background-color: #250202;
+        }
+
+        .dark-mode td {
+            background-color: rgba(30, 1, 1, 0.97);
+            --text-color: #eee9e9;
+        }
+        .dark-mode .Top-Bar{
+            background-color: #000301;
         }
 
         .transaction-title {
@@ -145,37 +166,6 @@
             color: #ed3f14;
         }
 
-        /*DARK MODE COLORS*/
-        th.dark-mode{
-            background-color: #08143d;
-        }
-        table.dark-mode{
-            background-color: #380719;
-        }
-        .toggle-mode.dark-mode {
-            color: var(--background-color);
-        }
-        .container.dark-mode{
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
-        .progress-bar.dark-mode{
-            background-color: var(--background-color);
-        }
-        .Top-Bar.dark-mode{
-            background-color: #6addea;
-        }
-        body.dark-mode {
-            --background-color: #51d0e0;
-            --text-color: #1c1c01;
-        }
-        .card-transaction.dark-mode {
-
-             background-color: #2f0e0e;
-         }
-
-
         /* Additional Style for the Counter Container */
         .counter-container {
             text-align: center;
@@ -194,187 +184,155 @@
     <div class="toggle-mode" onclick="toggleDarkMode()">Mode</div>
 
     <header class="Top-Bar">
-        <img src="/static/images/havelsan_logo.png" alt="Havelsan" class="centered-image">
+        <img src="/static/images/havelsan_logo.svg" alt="Havelsan" class="centered-image">
     </header>
 
-    <div class="container">
-        <h1>Sıradaki Kişi Sayısı  <span id="counter"></span>  </h1>
+    <section class="layout">
+        <div class="container"><h3 style="text-align: center;">TABLDOT MENU</h3>
+            <table>
+                <tr>
+                    <th>Yemek</th>
+                    <th>Tür</th>
+                    <th>Kalori</th>
+                </tr>
+                <tr>
+                    <td>Yarma Çorba</td>
+                    <td>Çorba</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td>Bazlamalı Parmak Köfte</td>
+                    <td>Ana Yemek</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Melek Pilavı</td>
+                    <td>Yardımcı Yemek</td>
+                    <td>290</td>
+                </tr>
+                <tr>
+                    <td>Meşrubat</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+            </table></div> <div class="container">
+        <h1>Sıradaki Kişi Sayısı: <span id="counter">0</span></h1>
         <div class="progress-bar">
             <div class="fill" id="progress"></div>
         </div>
     </div>
-
-    <section class="layout">
-  <div><h3 style="text-align: center;">TABLDOT MENU       95TL</h3>
-        <table>
-            <tr>
-                <th>Yemek</th>
-                <th>Tür</th>
-                <th>Kalori</th>
-            </tr>
-            <tr>
-                <td>Yarma Çorba</td>
-                <td>Çorba</td>
-                <td>190</td>
-            </tr>
-            <tr>
-                <td>Bazlamalı Parmak Köfte</td>
-                <td>Ana Yemek</td>
-                <td>350</td>
-            </tr>
-            <tr>
-                <td>Melek Pilavı</td>
-                <td>Yardımcı Yemek</td>
-                <td>290</td>
-            </tr>
-            <tr>
-                <td>Meşrubat</td>
-                <td>Meyve/Tatlı</td>
-                <td>200</td>
-            </tr>
-        </table></div>
-  <div></div>
-  <div><h3 style="text-align: center;">SEÇMELİ A la Carte MENÜ</h3>
-        <table>
-            <tr>
-                <th>Yemek</th>
-                <th>Tür</th>
-                <th>Fiyat</th>
-            </tr>
-            <tr>
-                <td>Kremalı Mantar Çorba</td>
-                <td>Çorba Çeşidi</td>
-                <td>10.5 TL</td>
-            </tr>
-            <tr>
-                <td>Etli Saray Kebap</td>
-                <td>Ana Yemek Çeşidi</td>
-                <td>84 TL</td>
-            </tr>
-            <tr>
-                <td>Izgara Kaşarlı Köfte</td>
-                <td>Ana Yemek Çeşidi</td>
-                <td>74 TL</td>
-            </tr>
-            <tr>
-                <td>Pirinç Pilavı</td>
-                <td>Yardımcı Yemek</td>
-                <td>19 TL</td>
-            </tr>
-            <tr>
-                <td>Muz</td>
-                <td>Meyve</td>
-                <td>11 TL</td>
-            </tr>
-            <tr>
-                <td>Trileçe</td>
-                <td>Tatlı</td>
-                <td>16 TL</td>
-            </tr>
-            <tr>
-                <td>Meşrubat</td>
-                <td>İçecek</td>
-                <td>12.5 TL</td>
-            </tr>
-            <tr>
-                <td>Su</td>
-                <td>Su</td>
-                <td>3.5 TL</td>
-            </tr>
-            <tr>
-                <td>Yoğurt</td>
-                <td>Yoğurt</td>
-                <td>8.5 TL</td>
-            </tr>
-        </table></div>
-  <div><h3 style="text-align: center;">TABLDOT DİYET MENU     90TL</h3>
-        <table>
-            <tr>
-                <th>Yemek</th>
-                <th>Tür</th>
-                <th>Kalori</th>
-            </tr>
-            <tr>
-                <td>Yarma Çorba</td>
-                <td>Çorba</td>
-                <td>190</td>
-            </tr>
-            <tr>
-                <td>Bazlamalı Parmak Köfte</td>
-                <td>Ana Yemek</td>
-                <td>350</td>
-            </tr>
-            <tr>
-                <td>Melek Pilavı</td>
-                <td>Yardımcı Yemek</td>
-                <td>290</td>
-            </tr>
-            <tr>
-                <td>Meşrubat</td>
-                <td>Meyve/Tatlı</td>
-                <td>200</td>
-            </tr>
-        </table></div>
-  <div></div>
-
-    <div><h3 style="text-align: center;">MENU Çeşitleri</h3>
-        <table>
-            <tr>
-                <th>Yemek</th>
-                <th>Tür</th>
-                <th>Kalori</th>
-            </tr>
-            <tr>
-                <td>A la Carte Et Menü</td>
-                <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
-                <td>145</td>
-            </tr>
-            <tr>
-                <td>A la Carte Tavuk Menü</td>
-                <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
-                <td>125</td>
-            </tr>
-            <tr>
-                <td>A la Carte Köfte Menü</td>
-                <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
-                <td>135</td>
-            </tr>
-            <tr>
-                <td>Kaşarlı Pide Menü</td>
-                <td>Çorba,1 adet Pide,Salata,Tatlı/Meyve/İçecek,Su</td>
-                <td>130</td>
-            </tr>
-        </table></div>
-  <div></div>
+        <div class="container"><h3 style="text-align: center;">TABLDOT DİYET MENU</h3>
+            <table>
+                <tr>
+                    <th>Yemek</th>
+                    <th>Tür</th>
+                    <th>Kalori</th>
+                </tr>
+                <tr>
+                    <td>Yarma Çorba</td>
+                    <td>Çorba</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td>Bazlamalı Parmak Köfte</td>
+                    <td>Ana Yemek</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Melek Pilavı</td>
+                    <td>Yardımcı Yemek</td>
+                    <td>290</td>
+                </tr>
+                <tr>
+                    <td>Meşrubat</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+            </table></div>
+        <div class="container"><h3 style="text-align: center;">Seçmeli A la Carte Menü</h3>
+            <table>
+                <tr>
+                    <th>Yemek</th>
+                    <th>Tür</th>
+                    <th>Kalori</th>
+                </tr>
+                <tr>
+                    <td>Kremalı Mantar Çorba</td>
+                    <td>Çorba</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td>Etli Saray Kebap</td>
+                    <td>Ana Yemek</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Izgara Kaşarlı Köfte</td>
+                    <td>Ana Yemek</td>
+                    <td>290</td>
+                </tr>
+                <tr>
+                    <td>Pirinç Pilavı</td>
+                    <td>Yardımcı Yemek</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>Muz</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Trileçe</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Yoğurt</td>
+                    <td>Yoğurt</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Su</td>
+                    <td>Su</td>
+                    <td>0</td>
+                </tr>
+            </table></div>
+        <div></div>
+        <div class="container"><h3 style="text-align: center;">SALATALAR--------------------------------</h3>
+            <table>
+                <tr>
+                    <td>Gavurdağ Salata</td>
+                </tr>
+                <tr>
+                    <td>Ispanak Borani</td>
+                </tr>
+                <tr>
+                    <td>Zyt. Fasulye</td>
+                </tr>
+                <tr>
+                    <td>Maydanoz Tabule</td>
+                </tr>
+            </table>
+        <h3 style="text-align: center;">MENÜ ÇEŞİTLERİ--------------------------------------</h3>
+            <table>
+                <tr>
+                    <td>A la Carte Et Menü</td>
+                </tr>
+                <tr>
+                    <td>A la Carte Tavuk Menü</td>
+                </tr>
+                <tr>
+                    <td>A la Carte Köfte Menü</td>
+                </tr>
+                <tr>
+                    <td>Kaşarlı Pide Menü</td>
+                </tr>
 
 
-  <div><h3 style="text-align: center ; float: initial;">SALATALAR 12,5TL</h3>
-        <table>
-            <tr>
-                <th>Salata Çeşidi</th>
-<!--                <th>Fiyat</th>-->
-            </tr>
-            <tr>
-                <td>Gavurdağ Salata</td>
-<!--                <td>12,5</td>-->
-            </tr>
-            <tr>
-                <td>Ispanak Borani</td>
-<!--                <td>12,5</td>-->
-            </tr>
-            <tr>
-                <td>Maydanoz Tabule</td>
-<!--                <td>12,5</td>-->
-            </tr>
-            <tr>
-                <td>Zyt. Fasulye</td>
-<!--                <td>12,5</td>-->
-            </tr>
-        </table></div>
+            </table>
 
-<!--  <div>8</div>-->
-<!--  <div>9</div>-->
-</section>
+        </div>
+    </section>
 
 
 
@@ -386,8 +344,19 @@
             socket.send('a');
         });
         socket.on('message', function(msg) {
-            document.getElementById('counter').innerText = msg;
-            socket.send('a');
+            const counterSpan = document.getElementById('counter');
+        const progressBar = document.getElementById('progress');
+        const count = parseInt(msg);
+        counterSpan.innerText = count;
+
+        // Assuming you have a maximum capacity of 100 for the zone, adjust this as needed
+        const maxCapacity = 10;
+
+        // Calculate the width of the progress bar based on the person count and maximum capacity
+        const progressBarWidth = (count / maxCapacity) * 100;
+        progressBar.style.width = `${progressBarWidth}%`;
+
+        socket.send('a');
         });
     </script>
 
