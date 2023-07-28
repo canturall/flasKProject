@@ -8,9 +8,20 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+<<<<<<< HEAD
             background-color: rgb(248, 248, 248);
             --background-color: rgb(79, 214, 231);
             --text-color: #1c1c01;
+=======
+            background-color: #f5f5f5;
+            --background-color: #3e9da9;
+            --text-color: #333;
+        }
+
+        body.dark-mode {
+            --background-color: #333;
+            --text-color: #f1f1f1;
+>>>>>>> 135f5b01389fa84974e57a3059f49d09cec1e17b
         }
 
         .Top-Bar{
@@ -108,10 +119,29 @@
             text-align: center;
             border: 1px solid #000000;
             padding: 5px;
+            background-color: #f2f2f2;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .fill {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0;
         }
 
         th {
+<<<<<<< HEAD
             background-color: rgb(62, 157, 169);
+=======
+            background-color: #d3d3d3;
+>>>>>>> 135f5b01389fa84974e57a3059f49d09cec1e17b
         }
 
          /*TEXT COLOR : 3E9DA9FF*/
@@ -194,16 +224,151 @@
     <div class="toggle-mode" onclick="toggleDarkMode()">Mode</div>
 
     <header class="Top-Bar">
-        <img src="/static/images/havelsan_logo.png" alt="Havelsan" class="centered-image">
+        <img src="/static/images/havelsan_logo.svg" alt="Havelsan" class="centered-image">
     </header>
 
-    <div class="container">
-        <h1>Sıradaki Kişi Sayısı  <span id="counter"></span>  </h1>
+    <section class="layout">
+        <div class="container"><h3 style="text-align: center;">TABLDOT MENU</h3>
+            <table>
+                <tr>
+                    <th>Yemek</th>
+                    <th>Tür</th>
+                    <th>Kalori</th>
+                </tr>
+                <tr>
+                    <td>Yarma Çorba</td>
+                    <td>Çorba</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td>Bazlamalı Parmak Köfte</td>
+                    <td>Ana Yemek</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Melek Pilavı</td>
+                    <td>Yardımcı Yemek</td>
+                    <td>290</td>
+                </tr>
+                <tr>
+                    <td>Meşrubat</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+            </table></div> <div class="container">
+        <h1>Sıradaki Kişi Sayısı: <span id="counter">0</span></h1>
         <div class="progress-bar">
             <div class="fill" id="progress"></div>
         </div>
     </div>
+        <div class="container"><h3 style="text-align: center;">TABLDOT DİYET MENU</h3>
+            <table>
+                <tr>
+                    <th>Yemek</th>
+                    <th>Tür</th>
+                    <th>Kalori</th>
+                </tr>
+                <tr>
+                    <td>Yarma Çorba</td>
+                    <td>Çorba</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td>Bazlamalı Parmak Köfte</td>
+                    <td>Ana Yemek</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Melek Pilavı</td>
+                    <td>Yardımcı Yemek</td>
+                    <td>290</td>
+                </tr>
+                <tr>
+                    <td>Meşrubat</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+            </table></div>
+        <div class="container"><h3 style="text-align: center;">Seçmeli A la Carte Menü</h3>
+            <table>
+                <tr>
+                    <th>Yemek</th>
+                    <th>Tür</th>
+                    <th>Kalori</th>
+                </tr>
+                <tr>
+                    <td>Kremalı Mantar Çorba</td>
+                    <td>Çorba</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td>Etli Saray Kebap</td>
+                    <td>Ana Yemek</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Izgara Kaşarlı Köfte</td>
+                    <td>Ana Yemek</td>
+                    <td>290</td>
+                </tr>
+                <tr>
+                    <td>Pirinç Pilavı</td>
+                    <td>Yardımcı Yemek</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>Muz</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Trileçe</td>
+                    <td>Meyve/Tatlı</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Yoğurt</td>
+                    <td>Yoğurt</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Su</td>
+                    <td>Su</td>
+                    <td>0</td>
+                </tr>
+            </table></div>
+        <div></div>
+        <div class="container"><h3 style="text-align: center;">SALATALAR--------------------------------</h3>
+            <table>
+                <tr>
+                    <td>Gavurdağ Salata</td>
+                </tr>
+                <tr>
+                    <td>Ispanak Borani</td>
+                </tr>
+                <tr>
+                    <td>Zyt. Fasulye</td>
+                </tr>
+                <tr>
+                    <td>Maydanoz Tabule</td>
+                </tr>
+            </table>
+        <h3 style="text-align: center;">MENÜ ÇEŞİTLERİ--------------------------------------</h3>
+            <table>
+                <tr>
+                    <td>A la Carte Et Menü</td>
+                </tr>
+                <tr>
+                    <td>A la Carte Tavuk Menü</td>
+                </tr>
+                <tr>
+                    <td>A la Carte Köfte Menü</td>
+                </tr>
+                <tr>
+                    <td>Kaşarlı Pide Menü</td>
+                </tr>
 
+<<<<<<< HEAD
     <section class="layout">
   <div><h3 style="text-align: center;">TABLDOT MENU       95TL</h3>
         <table>
@@ -375,6 +540,16 @@
 <!--  <div>8</div>-->
 <!--  <div>9</div>-->
 </section>
+=======
+
+            </table>
+
+        </div>
+        <div class="container">7</div>
+        <div class="container">8</div>
+        <div class="container">9</div>
+    </section>
+>>>>>>> 135f5b01389fa84974e57a3059f49d09cec1e17b
 
 
 
@@ -386,8 +561,19 @@
             socket.send('a');
         });
         socket.on('message', function(msg) {
-            document.getElementById('counter').innerText = msg;
-            socket.send('a');
+            const counterSpan = document.getElementById('counter');
+        const progressBar = document.getElementById('progress');
+        const count = parseInt(msg);
+        counterSpan.innerText = count;
+
+        // Assuming you have a maximum capacity of 100 for the zone, adjust this as needed
+        const maxCapacity = 10;
+
+        // Calculate the width of the progress bar based on the person count and maximum capacity
+        const progressBarWidth = (count / maxCapacity) * 100;
+        progressBar.style.width = `${progressBarWidth}%`;
+
+        socket.send('a');
         });
     </script>
 
