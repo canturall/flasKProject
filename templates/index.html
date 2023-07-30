@@ -2,9 +2,11 @@
 <html>
 <head>
     <title>Havelsan Yemekhane App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
     <style>
         body {
+            transition: background-color 0.5s ease;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -15,7 +17,7 @@
 
         .Top-Bar{
             width: 100%;
-            height: 8vh;
+            height: 10vh;
             top: 0;
             background-color: #ffff;
             display: flex;
@@ -32,8 +34,10 @@
         .container {
             padding: 10px;
             margin: 50px auto;
-            max-width: 400px;
+            max-width: 500px;
+            max-height: 600px;
             background-color: var(--background-color);
+            min-width: 500px;
 
             color: var(--text-color);
             border-radius: 10px;
@@ -132,6 +136,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         body.dark-mode {
+            transition: background-color 0.5s ease;
            background-color: rgb(1, 1, 12);
             --background-color: #041328;
         }
@@ -159,6 +164,7 @@
         }
         .dark-mode .Top-Bar{
             background-color: #061554;
+            <img src="/static/images/havelsan_logo.svg" alt="Havelsan" class="centered-image">
         }
 
         .transaction-title {
@@ -196,7 +202,9 @@
     </style>
 </head>
 <body>
-    <div class="toggle-mode" onclick="toggleDarkMode()">Mode</div>
+<div class="background-overlay"></div>
+  <div class="content">
+    <div class="toggle-mode" onclick="toggleDarkMode()" fill="red">Mode</div>
 
     <header class="Top-Bar">
         <img src="/static/images/havelsan_logo.svg" alt="Havelsan" class="centered-image">
@@ -319,39 +327,17 @@
                 </tr>
             </table></div>
 
-<!--        <div style="width: 300px; height: 300px; position: relative;">-->
-<!--            <svg id="circle" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">-->
-<!--                <circle cx="50%" cy="50%" r="45%" stroke="blue" stroke-width="5%" fill="none" />-->
-<!--                    <circle id="progress" cx="50%" cy="50%" r="45%" stroke="blue" stroke-width="5%" fill="none" />-->
-<!--                <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="24px" fill="RED">DOLULUK ORANI</text>-->
-<!--            </svg>-->
-<!--        <div id="count" style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px;"></div></div>-->
-
         <div style="width: 300px; height: 300px; position: relative;">
     <svg id="circle" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50%" cy="50%" r="45%" stroke="blue" stroke-width="5%" fill="none" />
         <circle id="progress" cx="50%" cy="50%" r="45%" stroke="blue" stroke-width="5%" fill="none" />
-        <text id="countText" x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="24px" fill="black">DOLULUK ORANI</text>
+        <text id="countText" x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="24px" fill="red">DOLULUK ORANI</text>
     </svg>
     <div id="count" style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px;"></div></div>
 
 
 
-        <div class="container"><h3 style="text-align: center;">SALATALAR </h3>
-            <table>
-                <tr>
-                    <td>Gavurdağ Salata</td>
-                </tr>
-                <tr>
-                    <td>Ispanak Borani</td>
-                </tr>
-                <tr>
-                    <td>Zyt. Fasulye</td>
-                </tr>
-                <tr>
-                    <td>Maydanoz Tabule</td>
-                </tr>
-            </table>
+            <div class="container"><h3 style="text-align: center;">MENÜ ÇEŞİTLERİ </h3>
         <h3 style="text-align: center;">MENÜ ÇEŞİTLERİ</h3>
             <table>
                 <tr>
@@ -383,6 +369,32 @@
 
             </table>
 
+        </div>
+
+        <div></div>
+        <div class="container" ><h3 style="text-align: center;">SALATALAR </h3>
+            <table>
+                <tr>
+                    <th>Salata Çeşidi</th>
+                    <th>Fiyat</th>
+                </tr>
+                <tr>
+                    <td>Gavurdağ Salata</td>
+                    <td>12,5 TL</td>
+                </tr>
+                <tr>
+                    <td>Ispanak Borani</td>
+                    <td>12,5 TL</td>
+                </tr>
+                <tr>
+                    <td>Zyt. Fasulye</td>
+                    <td>12,5 TL</td>
+                </tr>
+                <tr>
+                    <td>Maydanoz Tabule</td>
+                    <td>12,5 TL</td>
+                </tr>
+            </table>
         </div>
     </section>
 
@@ -459,6 +471,6 @@
         }
     </script>
 <!--<script src="sayi.js" type="module"></script>-->
-
+ </div>
 </body>
 </html>
