@@ -15,7 +15,41 @@
             --text-color: #333;
         }
 
-        .Top-Bar{
+
+        .circular-progress {
+            position: relative;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circular-progress::before {
+            content: "";
+            position: absolute;
+            height: 210px;
+            width: 210px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .progress-value {
+            position: relative;
+            font-size: 40px;
+            font-weight: 600;
+            color: #7d2ae8;
+        }
+
+        .text {
+            font-size: 30px;
+            font-weight: 500;
+            color: #606060;
+        }
+
+        .Top-Bar {
             width: 100%;
             height: 10vh;
             top: 0;
@@ -25,7 +59,7 @@
             align-items: center;
         }
 
-        .centered-image{
+        .centered-image {
             width: 10vw;
             height: 8vh;
         }
@@ -64,23 +98,31 @@
         }
 
         .layout {
-  width: 1920px;
-  height: 1080px;
+            width: 1920px;
+            height: 1080px;
 
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
 
         .fill {
             height: 100%;
             border-radius: 5px;
         }
 
-        .green { background-color: green; }
-        .yellow { background-color: yellow; }
-        .red { background-color: red; }
+        .green {
+            background-color: green;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .red {
+            background-color: red;
+        }
 
         .toggle-mode {
             position: absolute;
@@ -115,6 +157,7 @@
             border-radius: 5px;
             overflow: hidden;
         }
+
         .fill {
             height: 100%;
             background-color: #000301;
@@ -128,22 +171,25 @@
         th {
             background-color: #d3d3d3;
         }
-         .card-transaction {
+
+        .card-transaction {
             margin: 20px 0;
             padding: 15px;
             border-radius: 10px;
             background-color: #ffffff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         body.dark-mode {
             transition: background-color 0.5s ease;
-           background-color: rgb(1, 1, 12);
+            background-color: rgb(1, 1, 12);
             --background-color: #041328;
         }
-         .dark-mode .container {
+
+        .dark-mode .container {
             background-color: rgba(129, 121, 121, 0.51);
             --text-color: #eee9e9;
-         }
+        }
 
         .dark-mode table {
             background-color: rgba(134, 21, 21, 0.7);
@@ -154,7 +200,8 @@
             background-color: rgba(35, 5, 5, 0.58);
             --text-color: #eee9e9;
         }
-        .dark-mode .progress-bar{
+
+        .dark-mode .progress-bar {
             background-color: #1f0707;
         }
 
@@ -162,9 +209,10 @@
             background-color: rgba(30, 1, 1, 0.97);
             --text-color: #eee9e9;
         }
-        .dark-mode .Top-Bar{
+
+        .dark-mode .Top-Bar {
             background-color: #061554;
-            <img src="/static/images/havelsan_logo.svg" alt="Havelsan" class="centered-image">
+        < img src = "/static/images/havelsan_logo.svg" alt = "Havelsan" class = "centered-image" >
         }
 
         .transaction-title {
@@ -203,7 +251,7 @@
 </head>
 <body>
 <div class="background-overlay"></div>
-  <div class="content">
+<div class="content">
     <div class="toggle-mode" onclick="toggleDarkMode()" fill="red">Mode</div>
 
     <header class="Top-Bar">
@@ -211,10 +259,10 @@
     </header>
 
     <div class="dateContainer">
-    <div style="height:55px; text-align: center; margin-top: 30px; background-color: #4b95c9; padding: 10px;">
-        <span id="currentDate" style="text-align: center;  font-size: 30px; font-weight: bold;"></span>
+        <div style="height:55px; text-align: center; margin-top: 30px; background-color: #4b95c9; padding: 10px;">
+            <span id="currentDate" style="text-align: center;  font-size: 30px; font-weight: bold;"></span>
+        </div>
     </div>
-</div>
 
     <section class="layout">
         <div class="container"><h3 style="text-align: center;">TABLDOT MENU</h3>
@@ -244,12 +292,14 @@
                     <td>Meyve/Tatlı</td>
                     <td>200</td>
                 </tr>
-            </table></div> <div class="container">
-        <h1>Sıradaki Kişi Sayısı: <span id="counter">0</span></h1>
-        <div class="progress-bar">
-            <div class="fill" id="progress"></div>
+            </table>
         </div>
-    </div>
+        <div class="container">
+            <h1>Sıradaki Kişi Sayısı: <span id="counter">0</span></h1>
+            <div class="progress-bar">
+                <div class="fill" id="progress"></div>
+            </div>
+        </div>
         <div class="container"><h3 style="text-align: center;">TABLDOT DİYET MENU</h3>
             <table>
                 <tr>
@@ -277,7 +327,8 @@
                     <td>Meyve/Tatlı</td>
                     <td>200</td>
                 </tr>
-            </table></div>
+            </table>
+        </div>
         <div class="container"><h3 style="text-align: center;">Seçmeli A la Carte Menü</h3>
             <table>
                 <tr>
@@ -325,20 +376,17 @@
                     <td>Su</td>
                     <td>0</td>
                 </tr>
-            </table></div>
-
-        <div style="width: 300px; height: 300px; position: relative;">
-    <svg id="circle" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50%" cy="50%" r="45%" stroke="blue" stroke-width="5%" fill="none" />
-        <circle id="progress" cx="50%" cy="50%" r="45%" stroke="blue" stroke-width="5%" fill="none" />
-        <text id="countText" x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="24px" fill="red">DOLULUK ORANI</text>
-    </svg>
-    <div id="count" style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px;"></div></div>
+            </table>
+        </div>
 
 
+        <div class="container">
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+        </div>
 
-            <div class="container"><h3 style="text-align: center;">MENÜ ÇEŞİTLERİ </h3>
-        <h3 style="text-align: center;">MENÜ ÇEŞİTLERİ</h3>
+        <div class="container"><h3 style="text-align: center;">MENÜ ÇEŞİTLERİ </h3>
             <table>
                 <tr>
                     <th>Menü</th>
@@ -372,7 +420,7 @@
         </div>
 
         <div></div>
-        <div class="container" ><h3 style="text-align: center;">SALATALAR </h3>
+        <div class="container"><h3 style="text-align: center;">SALATALAR </h3>
             <table>
                 <tr>
                     <th>Salata Çeşidi</th>
@@ -399,48 +447,37 @@
     </section>
 
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script>
         socket = io();
         socket.connect('http://127.0.0.1:5000/');
-        socket.on('connect', function() {
+        socket.on('connect', function () {
             socket.send('a');
         });
-        socket.on('message', function(msg) {
+        socket.on('message', function (msg) {
             const counterSpan = document.getElementById('counter');
-        const progressBar = document.getElementById('progress');
-        const count = parseInt(msg);
-        // counterSpan.innerText = count;
+            const progressBar = document.getElementById('progress');
+            const count = parseInt(msg);
+            // counterSpan.innerText = count;
 
-        const maxCapacity = 10;
-        const progressBarWidth = (count / maxCapacity) * 100;
-        // progressBar.style.width = `${progressBarWidth}%`;
-        updateCircle(msg);
-        socket.send('a');
+            const maxCapacity = 10;
+            const progressBarWidth = (count / maxCapacity) * 100;
+            // progressBar.style.width = `${progressBarWidth}%`;
+            updateCircle(msg);
+            socket.send('a');
         });
 
         function updateDate() {
-        const currentDateElement = document.getElementById('currentDate');
-        const currentDate = new Date();
-        const day = currentDate.getDate();
-        const month = currentDate.getMonth() + 1;
-        const year = currentDate.getFullYear();
+            const currentDateElement = document.getElementById('currentDate');
+            const currentDate = new Date();
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1;
+            const year = currentDate.getFullYear();
 
-        const formattedDate = `${day}.${month}.${year}`;
-        currentDateElement.innerText = formattedDate;
+            const formattedDate = `${day}.${month}.${year}`;
+            currentDateElement.innerText = formattedDate;
         }
 
-        //  function updateCircle(count) {
-        //     const countText = document.getElementById('countText');
-        //     const countDiv = document.getElementById('count');
-        //     const displayCount = count * 10;
-        //     countDiv.textContent = displayCount + '%';
-        //     countText.textContent = displayCount + '%';
-        //     const percentage = (displayCount / 1000) * 100;
-        //     const circle = document.getElementById('progress');
-        //     circle.setAttribute('stroke-dasharray', percentage + '% 100%');
-        // }
         function updateCircle(count) {
             const countText = document.getElementById('countText');
             const countDiv = document.getElementById('count');
@@ -462,7 +499,7 @@
         }
 
 
-    updateDate();
+        updateDate();
     </script>
 
     <script>
@@ -470,7 +507,8 @@
             document.body.classList.toggle('dark-mode');
         }
     </script>
-<!--<script src="sayi.js" type="module"></script>-->
- </div>
+    <script src="progress-bar.js"></script>
+    <!--<script src="sayi.js" type="module"></script>-->
+</div>
 </body>
 </html>
