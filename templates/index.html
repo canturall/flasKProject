@@ -99,6 +99,19 @@
             max-height: 600px;
             background-color: var(--background-color);
             min-width: 500px;
+            max-width: 500px;
+            color: var(--text-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .tahmini_container {
+            padding: 10px;
+            margin: 50px auto;
+            max-width: 500px;
+            max-height: 150px;
+            background-color: var(--background-color);
+            min-width: 500px;
 
             color: var(--text-color);
             border-radius: 10px;
@@ -126,7 +139,6 @@
         .layout {
             width: 1920px;
             height: 1080px;
-
             display: grid;
             grid-template-rows: repeat(3, 1fr);
             grid-template-columns: repeat(3, 1fr);
@@ -409,7 +421,7 @@
         </div>
 
 
-        <div class="container">
+        <div class="tahmini_container">
             <h1 style="text-align: center;">Tahmini Bekleme Süresi: <span id="counter">0</span></h1>
             <div class="progress-bar">
                 <div class="fill" id="progress"></div>
