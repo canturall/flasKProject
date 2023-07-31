@@ -80,6 +80,20 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       }
 
+
+      .tabldotcontainer {
+        padding: 10px;
+        margin: 50px auto;
+        min-width: 300px;
+        max-width: 500px;
+        min-height: 120px;
+        max-height: 240px;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: var(--text-color);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
       .tahmini_container {
         padding: 10px;
         margin: 50px auto;
@@ -287,7 +301,7 @@
       </nav>
 
       <section class="layout">
-        <div class="container">
+        <div class="tabldotcontainer">
           <h3 style="text-align: center;">TABLDOT MENU</h3>
           <table>
             <tr>
@@ -317,14 +331,18 @@
             </tr>
           </table>
         </div>
-        <div class="container">
-          <h1 style="text-align: center;">Sıradaki Kişi Sayısı: <span id="counter">0</span>
+        <div class="tahmini_container">
+          <h1 style="text-align: center;">
+            Sıradaki Kişi Sayısı: <span id="counter">0</span>
           </h1>
           <div class="progress-bar">
             <div class="fill" id="progress"></div>
           </div>
+          <h1 style="text-align: center;">
+            Tahmini Bekleme Süresi: <span id="waitCounter">0</span> - <span id="waitCounter2">0</span> dk
+          </h1>
         </div>
-        <div class="container">
+        <div class="tabldotcontainer">
           <h3 style="text-align: center;">TABLDOT DİYET MENU</h3>
           <table>
             <tr>
@@ -400,16 +418,38 @@
             <tr>
               <td>Su</td>
               <td>Su</td>
+              <td>0</td>
             </tr>
           </table>
         </div>
-        <div class="tahmini_container">
-          <h1 style="text-align: center;">Tahmini Bekleme Süresi: <span id="waitCounter">0</span>
-          </h1>
+        <div class="tabldotcontainer">
+          <h3 style="text-align: center;">SALATALAR </h3>
+          <table>
+            <tr>
+              <th>Salata Çeşidi</th>
+              <th>Fiyat</th>
+            </tr>
+            <tr>
+              <td>Gavurdağ Salata</td>
+              <td>12,5 TL</td>
+            </tr>
+            <tr>
+              <td>Ispanak Borani</td>
+              <td>12,5 TL</td>
+            </tr>
+            <tr>
+              <td>Zyt. Fasulye</td>
+              <td>12,5 TL</td>
+            </tr>
+            <tr>
+              <td>Maydanoz Tabule</td>
+              <td>12,5 TL</td>
+            </tr>
+          </table>
         </div>
         <div class="container">
-          <h3 style="text-align: center;">MENÜ ÇEŞİTLERİ </h3>
-          <table>
+         <h3 style="text-align: center;">MENÜ ÇEŞİTLERİ </h3>
+         <table>
             <tr>
               <th>Menü</th>
               <th>İçerik</th>
@@ -435,61 +475,43 @@
               <td>Çorba,1 adet Pide,Salata,Tatlı/Meyve/İçecek,Su</td>
               <td>130</td>
             </tr>
-          </table>
-        </div>
-        <div></div>
-        <div class="container">
-          <h3 style="text-align: center;">SALATALAR </h3>
-          <table>
-            <tr>
-              <th>Salata Çeşidi</th>
-              <th>Fiyat</th>
-            </tr>
-            <tr>
-              <td>Gavurdağ Salata</td>
-              <td>12,5 TL</td>
-            </tr>
-            <tr>
-              <td>Ispanak Borani</td>
-              <td>12,5 TL</td>
-            </tr>
-            <tr>
-              <td>Zyt. Fasulye</td>
-              <td>12,5 TL</td>
-            </tr>
-            <tr>
-              <td>Maydanoz Tabule</td>
-              <td>12,5 TL</td>
-            </tr>
-          </table>
-        </div>
+         </table>
+      </div>
       </section>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
       <script>
         socket = io();
         socket.connect('http://127.0.0.1:5000/');
         socket.on('connect', function() {
-          socket.send('a');
+        socket.send('a');
         });
-        socket.on('message', function(msg) {
-          const counterSpan = document.getElementById('counter');
-          const progressBar = document.getElementById('progress');
+
+        const counterSpan = document.getElementById('counter');
+        const progressBar = document.getElementById('progress');
+        const waitCounterSpan = document.getElementById('waitCounter');
+        const waitCounterSpan2 = document.getElementById('waitCounter2');
+        const waitProgressBar = document.getElementById('waitProgress');
+        let waitCount = 0;
+        function handleSocketMessage(msg) {
           const count = parseInt(msg);
           counterSpan.innerText = count;
           const maxCapacity = 10;
           const progressBarWidth = (count / maxCapacity) * 100;
           progressBar.style.width = `${progressBarWidth}%`;
-          const waitCounterSpan = document.getElementById('waitCounter');
-          const waitProgressBar = document.getElementById('waitProgress');
-          const waitCount = parseInt(msg);
+          waitCount = parseInt(msg) * 2;
           waitCounterSpan.innerText = waitCount;
-          const maxWaitTime = 60; // Update this value with the maximum wait time (in minutes) you want to represent
+          waitCounterSpan2.innerText = waitCount + 2;
+          const maxWaitTime = 60;
           const waitProgressBarWidth = (waitCount / maxWaitTime) * 100;
           waitProgressBar.style.width = `${waitProgressBarWidth}%`;
-          //updateCircle(msg);
+        }
+
+        let animationFrameId;
+        socket.on('message', function(msg) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = requestAnimationFrame(() => handleSocketMessage(msg));
           socket.send('a');
         });
-
         function updateDate() {
           const currentDateElement = document.getElementById('currentDate');
           const currentDate = new Date();
@@ -498,25 +520,6 @@
           const year = currentDate.getFullYear();
           const formattedDate = `${day}.${month}.${year}`;
           currentDateElement.innerText = formattedDate;
-        }
-
-        function updateCircle(count) {
-          const countText = document.getElementById('countText');
-          const countDiv = document.getElementById('count');
-          const displayCount = count * 10;
-          countText.innerHTML = `
-
-							<tspan x="50%" dy="-12px">DOLULUK ORANI</tspan>
-							<tspan x="50%" dy="24px"></tspan>
-							<tspan x="50%" dy="24px"></tspan>
-							<tspan x="50%" dy="24px"> ${displayCount}%</tspan>
-`;
-          const percentage = (displayCount / 1000) * 100;
-          const circle = document.getElementById('progress');
-          circle.setAttribute('stroke-dasharray', percentage + '% 100%');
-          const hue = ((100 - percentage) * 120) / 100; // Calculate hue value from 0 (red) to 120 (green)
-          const color = `hsl(${hue}, 100%, 50%)`; // Convert hue to an HSL color value
-          circle.setAttribute('stroke', color);
         }
         updateDate();
       </script>
