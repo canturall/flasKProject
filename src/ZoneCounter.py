@@ -23,4 +23,4 @@ def get_zone_count() -> int:
         zone.trigger(detections=detections)
         return zone.current_count
     else:
-        return -1
+        return 0
