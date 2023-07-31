@@ -24,7 +24,7 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.20; /* Adjust the transparency of the overlay */
+  opacity: 0.25; /* Adjust the transparency of the overlay */
   background-image: url('/static/images/mutfak.jpg'); /* Replace with your image path */
   background-size: cover;
   background-position: center center;

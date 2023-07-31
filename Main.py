@@ -13,6 +13,7 @@ def main():
 
 @socket.on('message')
 def handle_count_on_video(msg):
+    print(str(get_zone_count()))
     socket.send(str(get_zone_count()))
 
 

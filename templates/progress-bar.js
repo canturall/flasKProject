@@ -2,7 +2,7 @@
     progressValue = document.querySelector(".progress-value");
 
 let progressStartValue = 0,
-    progressEndValue = 90,
+    progressEndValue = 150,
     speed = 100;
 
 let progress = setInterval(() => {
