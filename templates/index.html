@@ -1,559 +1,553 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Havelsan Yemekhane App</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
     <style>
-        body {
-            transition: background-color 0.5s ease;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            --background-color: #4b95c9;
-            --text-color: #333;
-        }
+      body {
+        transition: background-color 0.5s ease;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        --background-color: #d5cece;
+        --text-color: #333;
+      }
 
-        .background-overlay {
-  /* Set the overlay image properties */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.20; /* Adjust the transparency of the overlay */
-  background-image: url('/static/images/sincap2.jpg'); /* Replace with your image path */
-  background-size: cover;
-  background-position: center center;
-  /* Ensure the overlay doesn't interfere with pointer events */
-  pointer-events: none;
-  /* Set the overlay image to be behind all other elements */
-  z-index: 0;
-}
+      .background-overlay {
+        /* Set the overlay image properties */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.40;
+        /* Adjust the transparency of the overlay */
+        background-image: url('/static/images/mutfak.jpg');
+        /* Replace with your image path */
+        background-size: cover;
+        background-position: center center;
+        /* Ensure the overlay doesn't interfere with pointer events */
+        pointer-events: none;
+        /* Set the overlay image to be behind all other elements */
+        z-index: 0;
+      }
 
-        .content {
-  /* Set the content area size and position */
-  margin: 0 auto;
-  padding: 20px;
-  /* Add any other styles specific to your content area */
-  /* Set the content to stack above the overlay image */
-  position: relative;
-  z-index: 1;
-}
+      .content {
+        /* Set the content area size and position */
+        margin: 0 auto;
+        padding: 20px;
+        /* Add any other styles specific to your content area */
+        /* Set the content to stack above the overlay image */
+        position: relative;
+        z-index: 1;
+      }
 
-        .circular-progress {
-            position: relative;
-            height: 250px;
-            width: 250px;
-            border-radius: 50%;
-            background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-        }
+      .circular-progress {
+        position: relative;
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+        background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+      }
 
-        .circular-progress::before {
-            content: "";
-            position: absolute;
-            height: 210px;
-            width: 210px;
-            border-radius: 50%;
-            background-color: #fff;
-        }
+      .circular-progress::before {
+        content: "";
+        position: absolute;
+        height: 210px;
+        width: 210px;
+        border-radius: 50%;
+        background-color: #fff;
+      }
 
-        .progress-value {
-            position: relative;
-            font-size: 40px;
-            font-weight: 600;
-            color: #7d2ae8;
-        }
+      .progress-value {
+        position: relative;
+        font-size: 40px;
+        font-weight: 600;
+        color: #7d2ae8;
+      }
 
-        .text {
-            font-size: 30px;
-            font-weight: 500;
-            color: #606060;
-        }
+      .text {
+        font-size: 30px;
+        font-weight: 500;
+        color: #606060;
+      }
 
-        .Top-Bar {
-            width: 100%;
-            height: 10vh;
-            top: 0;
-            background-color: #ffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .Top-Bar {
+        width: 100%;
+        height: 10vh;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .centered-image {
-            width: 10vw;
-            height: 8vh;
-        }
+      .centered-image {
+        width: 10vw;
+        height: 8vh;
+      }
 
+      .container {
+        padding: 10px;
+        margin: 50px auto;
+        max-width: 500px;
+        max-height: 600px;
+        min-width: 500px;
+        background-color: rgba(255, 255, 255, 0.5);
+        max-width: 500px;
+        color: var(--text-color);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
 
+      .tahmini_container {
+        padding: 10px;
+        margin: 50px auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        max-width: 500px;
+        max-height: 150px;
+        min-width: 500px;
+        color: var(--text-color);
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .dateContainer {
+        padding: 10px;
+        max-width: 200px;
+        background-color: transparent;
+        color: var(--text-color);
+        border-radius: 10px;
+        );
+        margin-left: 850px;
+        margin-top: 30px;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 30px;
+        background-color: var(--background-color);
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
+      .layout {
+        width: 1920px;
+        height: 1080px;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .fill {
+        height: 100%;
+        border-radius: 5px;
+      }
+
+      .green {
+        background-color: green;
+      }
+
+      .yellow {
+        background-color: yellow;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .toggle-mode {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 25px;
+        color: var(--text-color);
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-spacing: 0 15px;
+        background-color: white;
+      }
+
+      th,
+      td {
+        width: 150px;
+        text-align: center;
+        border: 1px solid #000000;
+        padding: 5px;
+        background-color: #f2f2f2;
+        border-radius: 8px;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 30px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .fill {
+        height: 100%;
+        background-color: #00ff56;
+        width: 0;
+      }
+
+      #circle {
+        margin-left: 160px;
+      }
+
+      th {
+        background-color: #d3d3d3;
+        border-radius: 8px;
+      }
+
+      .card-transaction {
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      body.dark-mode {
+        transition: background-color 0.5s ease;
+        background-color: rgb(1, 1, 12);
+        --background-color: #1bff00;
+      }
+
+      .dark-mode .container {
+        background-color: rgba(129, 121, 121, 0.51);
+        --text-color: #eee9e9;
+      }
+
+      .dark-mode table {
+        background-color: rgba(134, 21, 21, 0.7);
+        --text-color: #eee9e9;
+      }
+
+      .dark-mode th {
+        background-color: rgba(35, 5, 5, 0.58);
+        --text-color: #eee9e9;
+      }
+
+      .dark-mode .progress-bar {
+        background-color: #1f0707;
+      }
+
+      .dark-mode td {
+        background-color: rgba(30, 1, 1, 0.97);
+        --text-color: #eee9e9;
+      }
+
+      .dark-mode .Top-Bar {
+        background-color: #061554;
+        < img src="/static/images/havelsan_logo.svg"alt="Havelsan"class="centered-image">
+      }
+
+      .dark-mode .dateContainer {
+        background-color: transparent;
+        --text-color: #faf8f8;
+      }
+
+      .transaction-title {
+        margin-bottom: 5px;
+      }
+
+      .text-primary {
+        color: #2d8bf0;
+      }
+
+      .text-success {
+        color: #19be6b;
+      }
+
+      .text-warning {
+        color: #ff9900;
+      }
+
+      .text-danger {
+        color: #ed3f14;
+      }
+
+      /* Additional Style for the Counter Container */
+      .counter-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* Additional Style to center the container */
+      @media (min-width: 768px) {
         .container {
-            padding: 10px;
-            margin: 50px auto;
-            max-width: 500px;
-            max-height: 600px;
-            background-color: var(--background-color);
-            min-width: 500px;
-            max-width: 500px;
-            color: var(--text-color);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          margin: 50px auto;
         }
-
-        .tahmini_container {
-            padding: 10px;
-            margin: 50px auto;
-            max-width: 500px;
-            max-height: 150px;
-            background-color: var(--background-color);
-            min-width: 500px;
-
-            color: var(--text-color);
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
-        }
-
-        .dateContainer {
-            padding: 10px;
-            max-width: 200px;
-            background-color: transparent;
-            color: var(--text-color);
-            border-radius: 10px;);
-            margin-left: 850px;
-            margin-top: 30px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background-color: var(--background-color);
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .layout {
-            width: 1920px;
-            height: 1080px;
-            display: grid;
-            grid-template-rows: repeat(3, 1fr);
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .fill {
-            height: 100%;
-            border-radius: 5px;
-        }
-
-        .green {
-            background-color: green;
-        }
-
-        .yellow {
-            background-color: yellow;
-        }
-
-        .red {
-            background-color: red;
-        }
-
-        .toggle-mode {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            color: var(--text-color);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            border-spacing: 0 15px;
-            background-color: white;
-        }
-
-        th, td {
-            width: 150px;
-            text-align: center;
-            border: 1px solid #000000;
-            padding: 5px;
-            background-color: #f2f2f2;
-            border-radius: 8px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .fill {
-            height: 100%;
-            background-color: #000301;
-            width: 0;
-        }
-
-        #circle {
-            margin-left: 160px;
-        }
-
-        th {
-            background-color: #d3d3d3;
-            border-radius: 8px;
-        }
-
-        .card-transaction {
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        body.dark-mode {
-            transition: background-color 0.5s ease;
-            background-color: rgb(1, 1, 12);
-            --background-color: #041328;
-        }
-
-        .dark-mode .container {
-            background-color: rgba(129, 121, 121, 0.51);
-            --text-color: #eee9e9;
-        }
-
-        .dark-mode table {
-            background-color: rgba(134, 21, 21, 0.7);
-            --text-color: #eee9e9;
-        }
-
-        .dark-mode th {
-            background-color: rgba(35, 5, 5, 0.58);
-            --text-color: #eee9e9;
-        }
-
-        .dark-mode .progress-bar {
-            background-color: #1f0707;
-        }
-
-        .dark-mode td {
-            background-color: rgba(30, 1, 1, 0.97);
-            --text-color: #eee9e9;
-        }
-
-        .dark-mode .Top-Bar {
-            background-color: #061554;
-        < img src = "/static/images/havelsan_logo.svg" alt = "Havelsan" class = "centered-image" >
-        }
-
-        .dark-mode .dateContainer {
-            background-color: transparent;
-            --text-color: #faf8f8;
-        }
-
-        .transaction-title {
-            margin-bottom: 5px;
-        }
-
-        .text-primary {
-            color: #2d8bf0;
-        }
-
-        .text-success {
-            color: #19be6b;
-        }
-
-        .text-warning {
-            color: #ff9900;
-        }
-
-        .text-danger {
-            color: #ed3f14;
-        }
-
-        /* Additional Style for the Counter Container */
-        .counter-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        /* Additional Style to center the container */
-        @media (min-width: 768px) {
-            .container {
-                margin: 50px auto;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-<div class="background-overlay"></div>
-<div class="content">
-    <div class="toggle-mode" onclick="toggleDarkMode()" fill="red">Mode</div>
-
-    <header class="Top-Bar">
+  </head>
+  <body>
+    <div class="background-overlay"></div>
+    <div class="content">
+      <div class="toggle-mode" onclick="toggleDarkMode()">&#9788;</div>
+      <header class="Top-Bar">
         <img src="/static/images/havelsan_logo.svg" alt="Havelsan" class="centered-image">
-    </header>
-
-    <div class="dateContainer">
-            <span id="currentDate" style="text-align: center;  font-size: 30px; font-weight: bold;"></span>
-    </div>
-
-    <section class="layout">
-        <div class="container"><h3 style="text-align: center;">TABLDOT MENU</h3>
-            <table>
-                <tr>
-                    <th>Yemek</th>
-                    <th>Tür</th>
-                    <th>Kalori</th>
-                </tr>
-                <tr>
-                    <td>Yarma Çorba</td>
-                    <td>Çorba</td>
-                    <td>190</td>
-                </tr>
-                <tr>
-                    <td>Bazlamalı Parmak Köfte</td>
-                    <td>Ana Yemek</td>
-                    <td>350</td>
-                </tr>
-                <tr>
-                    <td>Melek Pilavı</td>
-                    <td>Yardımcı Yemek</td>
-                    <td>290</td>
-                </tr>
-                <tr>
-                    <td>Meşrubat</td>
-                    <td>Meyve/Tatlı</td>
-                    <td>200</td>
-                </tr>
-            </table>
+      </header>
+      <div class="dateContainer">
+        <span id="currentDate" style="text-align: center;  font-size: 30px; font-weight: bold;"></span>
+      </div>
+      <section class="layout">
+        <div class="container">
+          <h3 style="text-align: center;">TABLDOT MENU</h3>
+          <table>
+            <tr>
+              <th>Yemek</th>
+              <th>Tür</th>
+              <th>Kalori</th>
+            </tr>
+            <tr>
+              <td>Yarma Çorba</td>
+              <td>Çorba</td>
+              <td>190</td>
+            </tr>
+            <tr>
+              <td>Bazlamalı Parmak Köfte</td>
+              <td>Ana Yemek</td>
+              <td>350</td>
+            </tr>
+            <tr>
+              <td>Melek Pilavı</td>
+              <td>Yardımcı Yemek</td>
+              <td>290</td>
+            </tr>
+            <tr>
+              <td>Meşrubat</td>
+              <td>Meyve/Tatlı</td>
+              <td>200</td>
+            </tr>
+          </table>
         </div>
         <div class="container">
-            <h1 style="text-align: center;">Sıradaki Kişi Sayısı: <span id="counter">0</span></h1>
-            <div class="circular-progress">
-                <span class="progress-value">0%</span>
-            </div>
+          <h1 style="text-align: center;">Sıradaki Kişi Sayısı: <span id="counter">0</span>
+          </h1>
+          <div class="progress-bar">
+            <div class="fill" id="progress"></div>
+          </div>
         </div>
-        <div class="container"><h3 style="text-align: center;">TABLDOT DİYET MENU</h3>
-            <table>
-                <tr>
-                    <th>Yemek</th>
-                    <th>Tür</th>
-                    <th>Kalori</th>
-                </tr>
-                <tr>
-                    <td>Yarma Çorba</td>
-                    <td>Çorba</td>
-                    <td>190</td>
-                </tr>
-                <tr>
-                    <td>Bazlamalı Parmak Köfte</td>
-                    <td>Ana Yemek</td>
-                    <td>350</td>
-                </tr>
-                <tr>
-                    <td>Melek Pilavı</td>
-                    <td>Yardımcı Yemek</td>
-                    <td>290</td>
-                </tr>
-                <tr>
-                    <td>Meşrubat</td>
-                    <td>Meyve/Tatlı</td>
-                    <td>200</td>
-                </tr>
-            </table>
+        <div class="container">
+          <h3 style="text-align: center;">TABLDOT DİYET MENU</h3>
+          <table>
+            <tr>
+              <th>Yemek</th>
+              <th>Tür</th>
+              <th>Kalori</th>
+            </tr>
+            <tr>
+              <td>Yarma Çorba</td>
+              <td>Çorba</td>
+              <td>190</td>
+            </tr>
+            <tr>
+              <td>Bazlamalı Parmak Köfte</td>
+              <td>Ana Yemek</td>
+              <td>350</td>
+            </tr>
+            <tr>
+              <td>Melek Pilavı</td>
+              <td>Yardımcı Yemek</td>
+              <td>290</td>
+            </tr>
+            <tr>
+              <td>Meşrubat</td>
+              <td>Meyve/Tatlı</td>
+              <td>200</td>
+            </tr>
+          </table>
         </div>
-        <div class="container"><h3 style="text-align: center;">Seçmeli A la Carte Menü</h3>
-            <table>
-                <tr>
-                    <th>Yemek</th>
-                    <th>Tür</th>
-                    <th>Kalori</th>
-                </tr>
-                <tr>
-                    <td>Kremalı Mantar Çorba</td>
-                    <td>Çorba</td>
-                    <td>190</td>
-                </tr>
-                <tr>
-                    <td>Etli Saray Kebap</td>
-                    <td>Ana Yemek</td>
-                    <td>350</td>
-                </tr>
-                <tr>
-                    <td>Izgara Kaşarlı Köfte</td>
-                    <td>Ana Yemek</td>
-                    <td>290</td>
-                </tr>
-                <tr>
-                    <td>Pirinç Pilavı</td>
-                    <td>Yardımcı Yemek</td>
-                    <td>250</td>
-                </tr>
-                <tr>
-                    <td>Muz</td>
-                    <td>Meyve/Tatlı</td>
-                    <td>200</td>
-                </tr>
-                <tr>
-                    <td>Trileçe</td>
-                    <td>Meyve/Tatlı</td>
-                    <td>200</td>
-                </tr>
-                <tr>
-                    <td>Yoğurt</td>
-                    <td>Yoğurt</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>Su</td>
-                    <td>Su</td>
-                    <td>0</td>
-                </tr>
-            </table>
+        <div class="container">
+          <h3 style="text-align: center;">Seçmeli A la Carte Menü</h3>
+          <table>
+            <tr>
+              <th>Yemek</th>
+              <th>Tür</th>
+              <th>Kalori</th>
+            </tr>
+            <tr>
+              <td>Kremalı Mantar Çorba</td>
+              <td>Çorba</td>
+              <td>190</td>
+            </tr>
+            <tr>
+              <td>Etli Saray Kebap</td>
+              <td>Ana Yemek</td>
+              <td>350</td>
+            </tr>
+            <tr>
+              <td>Izgara Kaşarlı Köfte</td>
+              <td>Ana Yemek</td>
+              <td>290</td>
+            </tr>
+            <tr>
+              <td>Pirinç Pilavı</td>
+              <td>Yardımcı Yemek</td>
+              <td>250</td>
+            </tr>
+            <tr>
+              <td>Muz</td>
+              <td>Meyve/Tatlı</td>
+              <td>200</td>
+            </tr>
+            <tr>
+              <td>Trileçe</td>
+              <td>Meyve/Tatlı</td>
+              <td>200</td>
+            </tr>
+            <tr>
+              <td>Yoğurt</td>
+              <td>Yoğurt</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>Su</td>
+              <td>Su</td>
+            </tr>
+          </table>
         </div>
-
-
         <div class="tahmini_container">
-            <h1 style="text-align: center;">Tahmini Bekleme Süresi: <span id="asd">0</span></h1>
-            <div class="progress-bar">
-                <div class="fill" id="progress"></div>
-            </div>
+          <h1 style="text-align: center;">Tahmini Bekleme Süresi: <span id="waitCounter">0</span>
+          </h1>
         </div>
-
-        <div class="container"><h3 style="text-align: center;">MENÜ ÇEŞİTLERİ </h3>
-            <table>
-                <tr>
-                    <th>Menü</th>
-                    <th>İçerik</th>
-                    <th>Fiyat</th>
-                </tr>
-                <tr>
-                    <td>A la Carte Et Menü</td>
-                    <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
-                    <td>145</td>
-                </tr>
-                <tr>
-                    <td>A la Carte Tavuk Menü</td>
-                    <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
-                    <td>125</td>
-                </tr>
-                <tr>
-                    <td>A la Carte Köfte Menü</td>
-                    <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
-                    <td>135</td>
-                </tr>
-                <tr>
-                    <td>Kaşarlı Pide Menü</td>
-                    <td>Çorba,1 adet Pide,Salata,Tatlı/Meyve/İçecek,Su</td>
-                    <td>130</td>
-                </tr>
-
-
-            </table>
-
+        <div class="container">
+          <h3 style="text-align: center;">MENÜ ÇEŞİTLERİ </h3>
+          <table>
+            <tr>
+              <th>Menü</th>
+              <th>İçerik</th>
+              <th>Fiyat</th>
+            </tr>
+            <tr>
+              <td>A la Carte Et Menü</td>
+              <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
+              <td>145</td>
+            </tr>
+            <tr>
+              <td>A la Carte Tavuk Menü</td>
+              <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
+              <td>125</td>
+            </tr>
+            <tr>
+              <td>A la Carte Köfte Menü</td>
+              <td>Çorba,Ana ve Yrd.Yemek,Salata,Tatlı/Meyve/İçecek,Su</td>
+              <td>135</td>
+            </tr>
+            <tr>
+              <td>Kaşarlı Pide Menü</td>
+              <td>Çorba,1 adet Pide,Salata,Tatlı/Meyve/İçecek,Su</td>
+              <td>130</td>
+            </tr>
+          </table>
         </div>
-
         <div></div>
-        <div class="container"><h3 style="text-align: center;">SALATALAR </h3>
-            <table>
-                <tr>
-                    <th>Salata Çeşidi</th>
-                    <th>Fiyat</th>
-                </tr>
-                <tr>
-                    <td>Gavurdağ Salata</td>
-                    <td>12,5 TL</td>
-                </tr>
-                <tr>
-                    <td>Ispanak Borani</td>
-                    <td>12,5 TL</td>
-                </tr>
-                <tr>
-                    <td>Zyt. Fasulye</td>
-                    <td>12,5 TL</td>
-                </tr>
-                <tr>
-                    <td>Maydanoz Tabule</td>
-                    <td>12,5 TL</td>
-                </tr>
-            </table>
+        <div class="container">
+          <h3 style="text-align: center;">SALATALAR </h3>
+          <table>
+            <tr>
+              <th>Salata Çeşidi</th>
+              <th>Fiyat</th>
+            </tr>
+            <tr>
+              <td>Gavurdağ Salata</td>
+              <td>12,5 TL</td>
+            </tr>
+            <tr>
+              <td>Ispanak Borani</td>
+              <td>12,5 TL</td>
+            </tr>
+            <tr>
+              <td>Zyt. Fasulye</td>
+              <td>12,5 TL</td>
+            </tr>
+            <tr>
+              <td>Maydanoz Tabule</td>
+              <td>12,5 TL</td>
+            </tr>
+          </table>
         </div>
-    </section>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-    <script>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+      <script>
         socket = io();
         socket.connect('http://127.0.0.1:5000/');
-        socket.on('connect', function () {
-            socket.send('a');
+        socket.on('connect', function() {
+          socket.send('a');
         });
-        socket.on('message', function (msg) {
-            const counterSpan = document.getElementById('counter');
-            const progressBar = document.getElementById('progress');
-            const count = parseInt(msg);
-            counterSpan.innerText = count;
-
-            const maxCapacity = 10;
-            const progressBarWidth = (count / maxCapacity) * 100;
-            progressBar.style.width = `${progressBarWidth}%`;
-            //updateCircle(msg);
-            socket.send('a');
+        socket.on('message', function(msg) {
+          const counterSpan = document.getElementById('counter');
+          const progressBar = document.getElementById('progress');
+          const count = parseInt(msg);
+          counterSpan.innerText = count;
+          const maxCapacity = 10;
+          const progressBarWidth = (count / maxCapacity) * 100;
+          progressBar.style.width = `${progressBarWidth}%`;
+          const waitCounterSpan = document.getElementById('waitCounter');
+          const waitProgressBar = document.getElementById('waitProgress');
+          const waitCount = parseInt(msg);
+          waitCounterSpan.innerText = waitCount;
+          const maxWaitTime = 60; // Update this value with the maximum wait time (in minutes) you want to represent
+          const waitProgressBarWidth = (waitCount / maxWaitTime) * 100;
+          waitProgressBar.style.width = `${waitProgressBarWidth}%`;
+          //updateCircle(msg);
+          socket.send('a');
         });
 
         function updateDate() {
-            const currentDateElement = document.getElementById('currentDate');
-            const currentDate = new Date();
-            const day = currentDate.getDate();
-            const month = currentDate.getMonth() + 1;
-            const year = currentDate.getFullYear();
-
-            const formattedDate = `${day}.${month}.${year}`;
-            currentDateElement.innerText = formattedDate;
+          const currentDateElement = document.getElementById('currentDate');
+          const currentDate = new Date();
+          const day = currentDate.getDate();
+          const month = currentDate.getMonth() + 1;
+          const year = currentDate.getFullYear();
+          const formattedDate = `${day}.${month}.${year}`;
+          currentDateElement.innerText = formattedDate;
         }
 
         function updateCircle(count) {
-            const countText = document.getElementById('countText');
-            const countDiv = document.getElementById('count');
-            const displayCount = count * 10;
-            countText.innerHTML = `
-    <tspan x="50%" dy="-12px">DOLULUK ORANI</tspan>
-    <tspan x="50%" dy="24px"> </tspan>
-    <tspan x="50%" dy="24px"> </tspan>
-    <tspan x="50%" dy="24px"> ${displayCount}%</tspan>
+          const countText = document.getElementById('countText');
+          const countDiv = document.getElementById('count');
+          const displayCount = count * 10;
+          countText.innerHTML = `
+
+							<tspan x="50%" dy="-12px">DOLULUK ORANI</tspan>
+							<tspan x="50%" dy="24px"></tspan>
+							<tspan x="50%" dy="24px"></tspan>
+							<tspan x="50%" dy="24px"> ${displayCount}%</tspan>
 `;
-
-            const percentage = (displayCount / 1000) * 100;
-            const circle = document.getElementById('progress');
-            circle.setAttribute('stroke-dasharray', percentage + '% 100%');
-
-            const hue = ((100 - percentage) * 120) / 100; // Calculate hue value from 0 (red) to 120 (green)
-            const color = `hsl(${hue}, 100%, 50%)`; // Convert hue to an HSL color value
-            circle.setAttribute('stroke', color);
+          const percentage = (displayCount / 1000) * 100;
+          const circle = document.getElementById('progress');
+          circle.setAttribute('stroke-dasharray', percentage + '% 100%');
+          const hue = ((100 - percentage) * 120) / 100; // Calculate hue value from 0 (red) to 120 (green)
+          const color = `hsl(${hue}, 100%, 50%)`; // Convert hue to an HSL color value
+          circle.setAttribute('stroke', color);
         }
-
-
         updateDate();
-    </script>
-
-    <script>
+      </script>
+      <script>
         function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
+          document.body.classList.toggle('dark-mode');
         }
-    </script>
-    <script src="progress-bar.js"></script>
-    <!--<script src="sayi.js" type="module"></script>-->
-</div>
-</body>
+      </script>
+      <script src="progress-bar.js"></script>
+      <!--<script src="sayi.js" type="module"></script>-->
+    </div>
+  </body>
 </html>
