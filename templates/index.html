@@ -23,7 +23,7 @@
   width: 100%;
   height: 100%;
   opacity: 0.20; /* Adjust the transparency of the overlay */
-  background-image: url('/static/images/mutfak.jpg'); /* Replace with your image path */
+  background-image: url('/static/images/sincap2.jpg'); /* Replace with your image path */
   background-size: cover;
   background-position: center center;
   /* Ensure the overlay doesn't interfere with pointer events */
@@ -425,7 +425,7 @@
 
 
         <div class="tahmini_container">
-            <h1 style="text-align: center;">Tahmini Bekleme Süresi: <span id="counter">0</span></h1>
+            <h1 style="text-align: center;">Tahmini Bekleme Süresi: <span id="asd">0</span></h1>
             <div class="progress-bar">
                 <div class="fill" id="progress"></div>
             </div>
@@ -503,12 +503,12 @@
             const counterSpan = document.getElementById('counter');
             const progressBar = document.getElementById('progress');
             const count = parseInt(msg);
-            // counterSpan.innerText = count;
+            counterSpan.innerText = count;
 
             const maxCapacity = 10;
             const progressBarWidth = (count / maxCapacity) * 100;
-            // progressBar.style.width = `${progressBarWidth}%`;
-            updateCircle(msg);
+            progressBar.style.width = `${progressBarWidth}%`;
+            //updateCircle(msg);
             socket.send('a');
         });
 
