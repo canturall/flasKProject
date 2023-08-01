@@ -1,6 +1,6 @@
-Flask
-flask-socketio
 numpy
 ultralytics
 supervision
 opencv-python
+flask
+flask-socketio
